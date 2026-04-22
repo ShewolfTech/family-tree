@@ -25,7 +25,7 @@ export async function GET(req: NextRequest) {
 
     const result = trees.map((t) => ({
       ...t,
-      memberCount: countMap[t._id.toString()] || 0,
+      memberCount: countMap[String(t._id)] || 0,
     }));
 
     return NextResponse.json({ success: true, data: result });
